@@ -17,59 +17,35 @@
                 {
                     "id": "T0001",
                     "title": "Search Open Websites",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0001",
-                    "examples": [
-                        {
-                            "id": "EX0001",
-                            "title": "EXAMPLE 0001",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0001"
-                        }
-                    ]
+                    "description": "Adversaries may systematically peruse publicly accessible online platforms or domains to gather intelligence on potential targets. Such information, spanning personal to professional details, can often be retrieved from a myriad of online resources, including but not limited to, social media platforms, news portals, or sites delineating business functions, such as recruitment announcements or contract awards. \n In a subsequent context, platforms like dappradar.com, which curate and catalogue smart contract applications, offer a fertile ground for adversaries to engage in reconnaissance activities. These platforms provide structured and detailed insights into the landscape of active smart contracts, potentially revealing vulnerabilities or patterns of interest. An attacker, by leveraging the data available on such websites, can not only refine their strategy but also identify lucrative targets, optimizing their efforts for maximum impact.",
+                    "to": "/T0001"
                 },
                 {
                     "id": "T0002",
                     "title": "Phishing for Information",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0002",
-                    "examples": [
-                        {
-                            "id": "EX0002",
-                            "title": "EXAMPLE 0002",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0002"
-                        }
-                    ]
+                    "description": "Adversaries may deploy phishing strategies to obtain critical information that can facilitate their targeting efforts. Engaging in such information phishing is an endeavor to deceive individuals into revealing pertinent details, often encompassing credentials or other operationally significant data. This form of phishing is distinct from its more recognized counterpart that focuses on the delivery and execution of malicious payloads, as the primary aim here is information acquisition rather than system compromise. \n To illustrate, many decentralized applications (dApps) often establish dedicated websites to promote and elucidate the functionalities of their smart contract applications. Within these promotional platforms, there tends to be an accumulation of detailed personal data to harness developers' authority for various purposes. The presence of such extensive information, including email addresses and names, can inadvertently provide adversaries with opportunities. Leveraging this data, adversaries can craft meticulously designed phishing campaigns aimed at exfiltrating proprietary code or obtaining unauthorized access to the developers' environment.",
+                    "to": "/T0002"
                 },
                 {
                     "id": "T0003",
                     "title": "Search Blockchain Explorer",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0003",
-                    "examples": [
-                        {
-                            "id": "EX0003",
-                            "title": "EXAMPLE 0003",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0003"
-                        }
-                    ]
+                    "description": "This technique leverages the inherent transparency of blockchain systems, allowing adversaries to employ this method with ease. Not just in Ethereum, but across various cryptocurrencies, information within the blockchain can be readily accessed through individual node programs. For instance, in the context of Ethereum, platforms like Etherscan serve as blockchain explorers that enable users to identify smart contract's bytecode and ABI. Furthermore, developers often provide and display the actual code directly. Consequently, adversaries can employ their proprietary bytecode analyzers or static vulnerability detection tools to extensively comb through the explorer. This facilitates mass identification of potential vulnerabilities, streamlining the process for pinpointing exploitable weak points.",
+                    "to": "/T0003"
                 }
             ]
         },
         {
             "id": "TA0002",
             "title": "Initial Access",
-            "description": "The adversary is trying to get into blockchain network. \nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords.",
+            "description": "The adversary is trying to get into blockchain network. \nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include normal way to access blockchain or targeted exploiting weaknesses on mining node servers.",
             "to": "/TA0002",
             "created": "17 October 2018",
             "updated": "19 July 2019",
             "items": [
                 {
                     "id": "T0004",
-                    "title": "Public Blockchain",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "title": "Transactions Consuming Gas",
+                    "description": "Any transaction that precipitates a change in the state of the smart contract invariably requires gas. This encompasses invoking functions within the smart contract, deploying a new contract, or transferring ether. Moreover, engaging in operations within the smart contract, whether they are calculations, memory storage, or other tasks, draws upon the computational resources of the network, necessitating the consumption of gas.",
                     "to": "/T0004",
                     "examples": [
                         {
@@ -82,8 +58,8 @@
                 },
                 {
                     "id": "T0046",
-                    "title": "Decentralized EXchange(DEX)",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "title": "Transactions Not Consuming Gas",
+                    "description": "Transactions that are solely predicated on querying or retrieving data from the smart contract, devoid of any state alteration, are exempt from gas consumption. Such operations are executed on the local node and do not engender changes to the blockchain state. Smart contracts can emit events, which are special logging functionalities to record state changes or notable activities. These logs does not use gas and are stored in transaction receipts and are crucial for applications to monitor and react to contract activities. Also, computations or operations external to the Ethereum blockchain, termed as off-chain, do not require gas. It is only when the results of these operations are intended to be inscribed onto the blockchain that gas becomes a requisite.",
                     "to": "/T0046",
                     "examples": [
                         {
@@ -96,8 +72,8 @@
                 },
                 {
                     "id": "T0047",
-                    "title": "Centralized Exchange",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "title": "Miner Nodes",
+                    "description": "A compromised miner address could exploit vulnerabilities tied to the block variables, as elucidated in the background chapter. Vulnerability types, such as Bad Randomness and Time Manipulation, are particularly susceptible to manipulations by miners, given their capability to alter block timestamps.",
                     "to": "/T0047",
                     "examples": [
                         {
@@ -924,7 +900,7 @@
             "items": [
                 {
                     "id": "T0038",
-                    "title": "Mixers",
+                    "title": "Zero-Knowledge Proofs(ZKPs)",
                     "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
                     "to": "/T0038",
                     "examples": [
@@ -938,7 +914,7 @@
                 },
                 {
                     "id": "T0039",
-                    "title": "Gambling",
+                    "title": "Mixers",
                     "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
                     "to": "/T0039",
                     "examples": [
@@ -952,7 +928,7 @@
                 },
                 {
                     "id": "T0040",
-                    "title": "Atomic-Swap",
+                    "title": "Coin-Swap",
                     "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
                     "to": "/T0040",
                     "examples": [
@@ -966,7 +942,7 @@
                 },
                 {
                     "id": "T0041",
-                    "title": "Confidential Transactions (CTs)",
+                    "title": "OTC Broker",
                     "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
                     "to": "/T0041",
                     "examples": [
@@ -975,48 +951,6 @@
                             "title": "EXAMPLE 0041",
                             "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
                             "to": "/T0041"
-                        }
-                    ]
-                },
-                {
-                    "id": "T0042",
-                    "title": "CoinJoin",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0042",
-                    "examples": [
-                        {
-                            "id": "EX0042",
-                            "title": "EXAMPLE 0042",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0042"
-                        }
-                    ]
-                },
-                {
-                    "id": "T0043",
-                    "title": "Zero-Knowledge Proofs (ZKPs)",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0043",
-                    "examples": [
-                        {
-                            "id": "EX0043",
-                            "title": "EXAMPLE 0043",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0043"
-                        }
-                    ]
-                },
-                {
-                    "id": "T0044",
-                    "title": "Stealth Addresses",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0044",
-                    "examples": [
-                        {
-                            "id": "EX0044",
-                            "title": "EXAMPLE 0044",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0044"
                         }
                     ]
                 }
