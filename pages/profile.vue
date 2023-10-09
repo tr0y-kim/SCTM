@@ -5,7 +5,7 @@
             <v-col align="center" justify="center">
                 <v-row style="justify-content: center;">
                     <v-avatar size="200">
-                        <v-img :src="require(`~/assets/profile.jpeg`)"></v-img>
+                        <v-img :src="require(`~/assets/profile.jpg`)"></v-img>
                     </v-avatar>
                 </v-row>
                 <v-row style="justify-content: center;">
