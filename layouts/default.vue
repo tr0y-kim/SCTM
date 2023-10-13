@@ -47,6 +47,10 @@ export default {
       title: 'Smart Contract TTP Matrix | SCTM',
       menu: [
         {
+          title: 'Vectorize !',
+          to: '/vectorize',
+        },
+        {
           title: 'Tactics',
           to: '/tactics',
         },
