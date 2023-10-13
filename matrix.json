@@ -795,7 +795,7 @@
                 {
                     "id": "T0032",
                     "title": "Transfer Smart Contract Balance",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "This impact highlights the illicit transfer of Ether (or other tokens) from a smart contract's balance to the attacker's address. Successful exploitation might drain all the funds from a vulnerable smart contract.",
                     "to": "/T0032",
                     "examples": [
                         {
@@ -809,7 +809,7 @@
                 {
                     "id": "T0033",
                     "title": "Data Destruction",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Attackers might exploit vulnerabilities to erase or alter data stored in a smart contract, rendering it unusable or causing it to malfunction.",
                     "to": "/T0033",
                     "examples": [
                         {
@@ -823,7 +823,7 @@
                 {
                     "id": "T0034",
                     "title": "Storage Manipulation",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "This impact refers to the unauthorized modification of a contract's storage variables. By tampering with storage, an attacker can potentially alter the contract's intended behavior.",
                     "to": "/T0034",
                     "examples": [
                         {
@@ -837,7 +837,7 @@
                 {
                     "id": "T0035",
                     "title": "DOS revert",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Attackers can force a contract to revert its transactions, essentially denying service. This is often done by exploiting vulnerabilities that cause a contract to throw exceptions or errors.",
                     "to": "/T0035",
                     "examples": [
                         {
@@ -851,13 +851,13 @@
                 {
                     "id": "T0036",
                     "title": "Out of Gas Limit",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "By forcing complex computations or exploiting vulnerabilities, an attacker might cause a contract to exceed its gas limit, terminating its execution.",
                     "to": "/T0036",
                     "examples": [
                         {
                             "id": "EX0036",
                             "title": "EXAMPLE 0036",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The SELFDESTRUCT opcode allows a contract to destroy itself, sending its balance to a specified address. An attacker might exploit vulnerabilities to trigger this function maliciously.",
                             "to": "/EX0036"
                         }
                     ]
