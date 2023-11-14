@@ -9,7 +9,7 @@
                 <h5>{{ item.a }}</h5>
             </v-alert>
         </v-row>
-        <h2>Reference</h2>
+        <h2>Contribution</h2>
         <v-row no-gutters>
             <li v-for="(item, index) in reference" :key="index"><a :href="item.link">{{ item.text }}</a></li>
         </v-row>
@@ -33,9 +33,16 @@ export default {
                 "color": "#5cb85c"
             }],
             reference: [{
-                text: "You can help contribute to ATT&CK.",
-                link: "http://naver.com"
-            }]
+                text: "Jinho Jo, Samsung SDS",
+                link: "https://www.linkedin.com/in/jinho-jo-484036227/"
+            }, {
+                text: "Jisub Kim, Financial Security Institute",
+                link: "https://www.linkedin.com/in/jisub-kim-829761170/"
+            }, {
+                text: "Kanghyun Choi, Samsung SDS, Security Researcher",
+                link: "https://www.linkedin.com/in/kanghyun-choi-31a9071a9/"
+            }
+            ]
         };
     },
 };
