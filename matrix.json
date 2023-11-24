@@ -18,7 +18,19 @@
                     "id": "T0001",
                     "title": "Search Open Websites",
                     "description": "Adversaries may systematically peruse publicly accessible online platforms or domains to gather intelligence on potential targets. Such information, spanning personal to professional details, can often be retrieved from a myriad of online resources, including but not limited to, social media platforms, news portals, or sites delineating business functions, such as recruitment announcements or contract awards. \n In a subsequent context, platforms like dappradar.com, which curate and catalogue smart contract applications, offer a fertile ground for adversaries to engage in reconnaissance activities. These platforms provide structured and detailed insights into the landscape of active smart contracts, potentially revealing vulnerabilities or patterns of interest. An attacker, by leveraging the data available on such websites, can not only refine their strategy but also identify lucrative targets, optimizing their efforts for maximum impact.",
-                    "to": "/T0001"
+                    "to": "/T0001",
+                    "reference": [
+                        {
+                            "id": "1",
+                            "name": "DappRadar",
+                            "link": "https://dappradar.com/"
+                        },
+                        {
+                            "id": "2",
+                            "name": "Solidity Documentation - Delegatecall / Callcode and Libraries",
+                            "link": "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries"
+                        }
+                    ]
                 },
                 {
                     "id": "T0002",
@@ -30,7 +42,19 @@
                     "id": "T0003",
                     "title": "Search Blockchain Explorer",
                     "description": "This technique leverages the inherent transparency of blockchain systems, allowing adversaries to employ this method with ease. Not just in Ethereum, but across various cryptocurrencies, information within the blockchain can be readily accessed through individual node programs. For instance, in the context of Ethereum, platforms like Etherscan serve as blockchain explorers that enable users to identify smart contract's bytecode and ABI. Furthermore, developers often provide and display the actual code directly. Consequently, adversaries can employ their proprietary bytecode analyzers or static vulnerability detection tools to extensively comb through the explorer. This facilitates mass identification of potential vulnerabilities, streamlining the process for pinpointing exploitable weak points.",
-                    "to": "/T0003"
+                    "to": "/T0003",
+                    "reference": [
+                        {
+                            "id": "1",  
+                            "name": "etherscan",
+                            "link": "https://etherscan.io/"
+                        },
+                        {
+                            "id": "2",
+                            "name": "Ethereum Certified Contracts",
+                            "link": "https://etherscan.io/contractsVerified"
+                        }
+                    ]
                 }
             ]
         },
@@ -102,8 +126,14 @@
                     "examples": [
                         {
                             "id": "EX0005",
-                            "title": "EXAMPLE 0005",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "title": "Proxy Using DelegateCall",
+                            "description": "Delegatecall is a special variant of a message call. It is almost identical to a regular message call except the target address is executed in the context of the calling contract and msg.sender and msg.value remain the same. Essentially, delegatecall delegates other contracts to modify the calling contract's storage.",
+                            "to": "/EX0005"
+                        },
+                        {
+                            "id": "EX0005",
+                            "title": "Parity Hacked",
+                            "description": "The Parity hack involved a combination of both insecure visibility modifiers and misuse of delegate call with abritrary data. The vulnerable contract's function implemented delegatecall and a function from another contract that could modify ownership was left public. That allowed an attacker to craft the msg.data field to call the vulnerable function.",
                             "to": "/EX0005"
                         }
                     ],
@@ -170,7 +200,7 @@
                         {
                             "id": "EX0007",
                             "title": "EXAMPLE 0007",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The for loop iterates over refundAddresses, which can grow indefinitely if enough addresses are pushed to the array. This can lead to out-of-gas errors because there might not be enough gas to complete the loop if the array becomes large.",
                             "to": "/EX0007"
                         }
                     ],
@@ -196,7 +226,7 @@
                         {
                             "id": "EX0008",
                             "title": "EXAMPLE 0008",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The Relayer contract provided is vulnerable mainly due to its reliance on the low-level call function for forwarding calls to another contract, specified as Target. The call function forwards all remaining gas by default. If the Target contract's execute function requires more gas than is provided, the call will fail. This is known as the 'insufficient gas griefing' attack vector, where a contract is called with just enough gas to execute expensive operations but not enough to complete them, leading to a denial of service.",
                             "to": "/EX0008"
                         }
                     ],
@@ -216,13 +246,13 @@
                 {
                     "id": "T0009",
                     "title": "Incorrect Transaction Parameter",
-                    "description": "Only allow trusted users to relay transactions. Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "If a user calls a contract with a function selector that matches more than one function due to an incorrect parameter, it can result in the wrong function being called. This is especially risky if one of the functions is meant to be restricted or handle sensitive logic. Moreover, Sending an incorrect function selector or malformed data can result in the fallback function being triggered if no other function matches the signature. If the fallback function is not properly secured, it could lead to unexpected behavior, including security vulnerabilities.",
                     "to": "/T0009",
                     "examples": [
                         {
                             "id": "EX0009",
                             "title": "EXAMPLE 0009",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0009"
                         }
                     ]
@@ -247,7 +277,7 @@
                         {
                             "id": "EX0010",
                             "title": "EXAMPLE 0010",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The function declarations in lines 11 and 17 do not set the visibility of the functions. At least for Solidity 0.4.24 (as specified in the pragma statement), this means they will default to being treated as public. This allows anyone to call the _sendWinings() function and take the money. Instead, the fixed version below restricts the _sendWinnings() function visibility to internal, so it can only be activated by the WithdrawWinnings() function that enforces a check whether the sender actually met the presumed conditions to receive the money.",
                             "to": "/EX0010"
                         }
                     ],
@@ -273,8 +303,14 @@
                         {
                             "id": "EX0011",
                             "title": "EXAMPLE 0011",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The most straightforward example is a function that does not check for integer underflow, allowing you to withdraw an infinite amount of tokens",
                             "to": "/EX0011"
+                        },
+                        {
+                            "id": "EX0101",
+                            "title": "EXAMPLE 0101",
+                            "description": "Because var will change itself to the smallest type needed to contain the assigned value, it will become an uint8 to hold the value 0. If the loop is meant to iterate more than 255 times, it will never reach that number and will stop when the execution runs out of gas",
+                            "to": "/EX0101"
                         }
                     ],
                     "reference": [
@@ -299,7 +335,7 @@
                         {
                             "id": "EX0012",
                             "title": "EXAMPLE 0012",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The issue lies with the function missing(), which is intended to be the constructor but is not correctly named as one. In Solidity versions before 0.4.22, constructors were defined by creating a function with the same name as the contract. In this case, the contract is named Missing, but the constructor is named missing(). Since Solidity is case-sensitive, these are considered different names, and therefore missing() is not recognized as a constructor but rather as a regular public function that anyone can call. ",
                             "to": "/EX0012"
                         }
                     ],
@@ -324,8 +360,8 @@
                     "examples": [
                         {
                             "id": "EX0013",
-                            "title": "EXAMPLE 0013",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "title": "CoinLancer Token Bug",
+                            "description": "This token misused the modifier onlyOwner() which results to potential access control vulnerability. The onlyOwner modifier of a smart contract implementation for Coinlancer (CL), an Ethereum ERC20 token, has a potential access control vulnerability. All contract users can access functions that use this onlyOwner modifier, because the comparison between msg.sender and owner is incorrect.",
                             "to": "/EX0013"
                         }
                     ],
@@ -346,7 +382,7 @@
                         {
                             "id": "EX0014",
                             "title": "EXAMPLE 0014",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Variables can be specified as being public, internal or private. Explicitly define visibility for all state variables. Especially, private functions and state variables are only visible for the contract they are defined in and not in derived contracts. Note: Everything inside a contract is visible to all observers external to the blockchain, even Private variables.",
                             "to": "/EX0014"
                         }
                     ],
@@ -366,13 +402,13 @@
                 {
                     "id": "T0015",
                     "title": "Uninitialized Storage Pointer",
-                    "description": "Uninitialized local storage variables can point to unexpected storage locations in the contract, which can lead to intentional or unintentional vulnerabilities.",
+                    "description": "Uninitialized local storage variables can point to unexpected storage locations in the contract, which can lead to intentional or unintentional vulnerabilities. As of compiler version 0.5.0 and higher this issue has been systematically resolved as contracts with uninitialised storage pointers do no longer compile.",
                     "to": "/T0015",
                     "examples": [
                         {
                             "id": "EX0015",
                             "title": "EXAMPLE 0015",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The reason for changing Game game; to Game memory game; on line 39 pertains to how Solidity handles storage and memory. The original code, Game game;, by default, attempts to declare a state variable that should be stored in storage, which is costly and persistent across function calls and transactions. This is not necessary in this context because game is only needed temporarily within the function's scope.",
                             "to": "/EX0015"
                         }
                     ],
@@ -398,7 +434,7 @@
                         {
                             "id": "EX0017",
                             "title": "EXAMPLE 0017",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Contracts that use the tx.origin to authorize users are vulnerable to phishing attacks.",
                             "to": "/EX0017"
                         }
                     ],
@@ -429,7 +465,7 @@
                         {
                             "id": "EX0018",
                             "title": "EXAMPLE 0018",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The UpdateBonusCodeAt function allows direct updating of the bonusCodes array at a specified index. If an attacker can manipulate the array length (by underflowing it with the PopBonusCode function), they can set the length to an arbitrary large number. This can potentially allow an attacker to write to arbitrary storage locations in the contract by specifying an index that corresponds to other storage locations.",
                             "to": "/EX0018"
                         }
                     ],
@@ -466,8 +502,14 @@
                         {
                             "id": "EX0011",
                             "title": "EXAMPLE 0011",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The most straightforward example is a function that does not check for integer underflow, allowing you to withdraw an infinite amount of tokens",
                             "to": "/EX0011"
+                        },
+                        {
+                            "id": "EX0101",
+                            "title": "EXAMPLE 0101",
+                            "description": "Because var will change itself to the smallest type needed to contain the assigned value, it will become an uint8 to hold the value 0. If the loop is meant to iterate more than 255 times, it will never reach that number and will stop when the execution runs out of gas",
+                            "to": "/EX0101"
                         }
                     ],
                     "reference": [
@@ -512,13 +554,13 @@
                 {
                     "id": "T0022",
                     "title": "Signature Malleability",
-                    "description": "The implementation of a cryptographic signature system in Ethereum contracts often assumes that the signature is unique, but signatures can be altered without the possession of the private key and still be valid. The EVM specification defines several so-called ‘precompiled’ contracts one of them being ecrecover which executes the elliptic curve public key recovery. A malicious user can slightly modify the three values v, r and s to create other valid signatures. A system that performs signature verification on contract level might be susceptible to attacks if the signature is part of the signed message hash. Valid signatures could be created by a malicious user to replay previously signed messages.",
+                    "description": "The implementation of a cryptographic signature system in Ethereum contracts often assumes that the signature is unique, but signatures can be altered without the possession of the private key and still be valid. The EVM specification defines several so-called 'precompiled' contracts one of them being ecrecover which executes the elliptic curve public key recovery. A malicious user can slightly modify the three values v, r and s to create other valid signatures. A system that performs signature verification on contract level might be susceptible to attacks if the signature is part of the signed message hash. Valid signatures could be created by a malicious user to replay previously signed messages.",
                     "to": "/T0022",
                     "examples": [
                         {
                             "id": "EX0022",
                             "title": "EXAMPLE 0022",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "In Solidity, the ecrecover function is used to recover the public key (i.e., the address) from a signature. This function derives the address from a given hash and a signature, which depends on the v, r, and s values of the signature. If a signature is malleable, slight modifications to the r or s values can generate multiple valid signatures. Ethereum tries to enforce the uniqueness of signatures by restricting the s value to be less than half of the order of the Secp256k1 curve.",
                             "to": "/EX0022"
                         }
                     ],
@@ -540,7 +582,7 @@
                         {
                             "id": "EX0023",
                             "title": "EXAMPLE 0023",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Random numbers can be guessed by making exploit contract that use the same code including block number",
                             "to": "/EX0023"
                         }
                     ],
@@ -566,7 +608,7 @@
                         {
                             "id": "EX0018",
                             "title": "EXAMPLE 0018",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "The UpdateBonusCodeAt function allows direct updating of the bonusCodes array at a specified index. If an attacker can manipulate the array length (by underflowing it with the PopBonusCode function), they can set the length to an arbitrary large number. This can potentially allow an attacker to write to arbitrary storage locations in the contract by specifying an index that corresponds to other storage locations.",
                             "to": "/EX0018"
                         }
                     ],
@@ -592,7 +634,7 @@
                         {
                             "id": "EX0024",
                             "title": "EXAMPLE 0024",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Attacker is able to point a function type variable to any code instruction, violating required validations and required state changes.",
                             "to": "/EX0024"
                         }
                     ],
@@ -614,15 +656,6 @@
                     "title": "Improper Verification of Cryptographic Signature",
                     "description": "It is sometimes necessary to perform signature verification in smart contracts to achieve better usability or to save gas cost. A secure implementation needs to protect against Signature Replay Attacks by for example keeping track of all processed message hashes and only allowing new message hashes to be processed. A malicious user could attack a contract without such a control and get message hash that was sent by another user processed multiple times.",
                     "to": "/T0025",
-                    "examples": [
-                        {
-                            "id": "EX0025",
-                            "title": "EXAMPLE 0025",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0025"
-                        }
-                    ],
-
                     "reference" : [
                     {
                         "id": "1",
@@ -640,15 +673,6 @@
                     "title": "Insecure Signature Verification",
                     "description": "It is a common pattern for smart contract systems to allow users to sign messages off-chain instead of directly requesting users to do an on-chain transaction because of the flexibility and increased transferability that this provides. Smart contract systems that process signed messages have to implement their own logic to recover the authenticity from the signed messages before they process them further. A limitation for such systems is that smart contracts can not directly interact with them because they can not sign messages. Some signature verification implementations attempt to solve this problem by assuming the validity of a signed message based on other methods that do not have this limitation. An example of such a method is to rely on msg.sender and assume that if a signed message originated from the sender address then it has also been created by the sender address. This can lead to vulnerabilities especially in scenarios where proxies can be used to relay transactions.",
                     "to": "/T0026",
-                    "examples": [
-                        {
-                            "id": "EX0026",
-                            "title": "EXAMPLE 0026",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0026"
-                        }
-                    ],
-
                     "reference" : [
                     {
                         "id": "1",
@@ -670,7 +694,7 @@
                         {
                             "id": "EX0027",
                             "title": "EXAMPLE 0027",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Hash collison can be occurred in abi.encodePacked.",
                             "to": "/EX0027"
                         }
                     ],
@@ -691,12 +715,12 @@
                     "id": "T0045",
                     "title": "Contract Detection with extcodesize",
                     "description": "Extcodesize(A) assembly function returns the size of the code at address A. If the extcodesize of address A is not 0, it is likely to be a contract address, since the contract address will contain the code area. However, when a contract is deployed in the blockchain, the blockchain first put the constructor and initialize code size as 0. So if the attacker calculate the random number in constructor, they can easily bypass a logic.",
-                    "to": "/hash-collisions-with-multiple-variable-length-arguments",
+                    "to": "/T0045",
                     "examples": [{
-                        "id": "EX0001",
-                        "title": "EXAMPLE 0001",
-                        "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                        "to": "/search-open-websites"
+                        "id": "EX0103",
+                        "title": "Greedy 599 with extcodesize",
+                        "description": "When you use Extcodesize to find out the contract address, it can be detoured by constructor.",
+                        "to": "/EX0103"
                     }],
 
                     "reference" : [
@@ -711,7 +735,7 @@
         {
             "id": "TA0006",
             "title": "Discovery and Collection",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "Discovery identifies and collects valuable information within the smart contracts, which can include user credentials, sensitive data, or details about the contract information",
             "to": "/TA0006",
             "created": "17 October 2018",
             "updated": "19 July 2019",
@@ -719,21 +743,13 @@
                 {
                     "id": "T0028",
                     "title": "Smart Contract Private Key Discovery",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                    "to": "/T0028",
-                    "examples": [
-                        {
-                            "id": "EX0028",
-                            "title": "EXAMPLE 0028",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0028"
-                        }
-                    ]
+                    "description": "Private Key is discovered in the smart contract.",
+                    "to": "/T0028"
                 },
                 {
                     "id": "T0029",
                     "title": "unencrypted Private Variable",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "It is a common misconception that private type variables cannot be read. Even if your contract is not published, attackers can look at contract transactions to determine values stored in the state of the contract. For this reason, it's important that unencrypted private data is not stored in the contract code or state.",
                     "to": "/T0029",
                     "examples": [
                         {
@@ -764,7 +780,7 @@
                 {
                     "id": "T0030",
                     "title": "Block Variable",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Ability to generate random numbers is very helpful in all kinds of applications. One obvious example is gambling DApps, where pseudo-random number generator is used to pick the winner. However, creating a strong enough source of randomness in Ethereum is very challenging. For example, use of block.timestamp is insecure, as a miner can choose to provide any timestamp within a few seconds and still get his block accepted by others. Use of blockhash, block.difficulty and other fields is also insecure, as they're controlled by the miner. If the stakes are high, the miner can mine lots of blocks in a short time by renting hardware, pick the block that has required block hash for him to win, and drop all others.",
                     "to": "/T0030",
                     "examples": [
                         {
@@ -787,7 +803,7 @@
         {
             "id": "TA0007",
             "title": "Impact",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "Impact tactic refers to the ultimate consequence or effect of the attack on the victim, which may involve data destruction, disruption of services, or financial loss, and it often aligns with the attacker's end goals",
             "to": "/TA0007",
             "created": "17 October 2018",
             "updated": "19 July 2019",
@@ -796,86 +812,37 @@
                     "id": "T0032",
                     "title": "Transfer Smart Contract Balance",
                     "description": "This impact highlights the illicit transfer of Ether (or other tokens) from a smart contract's balance to the attacker's address. Successful exploitation might drain all the funds from a vulnerable smart contract.",
-                    "to": "/T0032",
-                    "examples": [
-                        {
-                            "id": "EX0032",
-                            "title": "EXAMPLE 0032",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/T0032"
-                        }
-                    ]
+                    "to": "/T0032"
                 },
                 {
                     "id": "T0033",
                     "title": "Data Destruction",
                     "description": "Attackers might exploit vulnerabilities to erase or alter data stored in a smart contract, rendering it unusable or causing it to malfunction.",
-                    "to": "/T0033",
-                    "examples": [
-                        {
-                            "id": "EX0033",
-                            "title": "EXAMPLE 0033",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/T0033"
-                        }
-                    ]
+                    "to": "/T0033"
                 },
                 {
                     "id": "T0034",
                     "title": "Storage Manipulation",
                     "description": "This impact refers to the unauthorized modification of a contract's storage variables. By tampering with storage, an attacker can potentially alter the contract's intended behavior.",
-                    "to": "/T0034",
-                    "examples": [
-                        {
-                            "id": "EX0034",
-                            "title": "EXAMPLE 0034",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0034"
-                        }
-                    ]
+                    "to": "/T0034"
                 },
                 {
                     "id": "T0035",
                     "title": "DOS revert",
                     "description": "Attackers can force a contract to revert its transactions, essentially denying service. This is often done by exploiting vulnerabilities that cause a contract to throw exceptions or errors.",
-                    "to": "/T0035",
-                    "examples": [
-                        {
-                            "id": "EX0035",
-                            "title": "EXAMPLE 0035",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0035"
-                        }
-                    ]
+                    "to": "/T0035"
                 },
                 {
                     "id": "T0036",
                     "title": "Out of Gas Limit",
                     "description": "By forcing complex computations or exploiting vulnerabilities, an attacker might cause a contract to exceed its gas limit, terminating its execution.",
-                    "to": "/T0036",
-                    "examples": [
-                        {
-                            "id": "EX0036",
-                            "title": "EXAMPLE 0036",
-                            "description": "The SELFDESTRUCT opcode allows a contract to destroy itself, sending its balance to a specified address. An attacker might exploit vulnerabilities to trigger this function maliciously.",
-                            "to": "/EX0036"
-                        }
-                    ]
+                    "to": "/T0036"
                 },
                 {
                     "id": "T0037",
                     "title": "SELFDESTRUCT",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "In Solidity, the selfdestruct function is used to remove a contract from the blockchain. When a contract calls this function, it causes the contract to be destroyed and removed from the Ethereum blockchain after the current execution context completes.",
                     "to": "/T0037",
-                    "examples": [
-                        {
-                            "id": "EX0037",
-                            "title": "EXAMPLE 0037",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
-                            "to": "/EX0037"
-                        }
-                    ],
-
                     "reference" : [
                     {
                         "id": "1",
@@ -893,7 +860,7 @@
         {
             "id": "TA0008",
             "title": "Managing",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "Tactics involves different methods and services that send cryptocurrency through numerous addresses or businesses to obscure their origins",
             "to": "/TA0008",
             "created": "17 October 2018",
             "updated": "19 July 2019",
@@ -901,7 +868,7 @@
                 {
                     "id": "T0038",
                     "title": "Zero-Knowledge Proofs(ZKPs)",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Zero-Knowledge Proofs (ZKPs) are cryptographic methods that allow one party to prove to another that a given statement is true, without revealing any specific information about the statement itself, ensuring both correctness and privacy.",
                     "to": "/T0038",
                     "examples": [
                         {
@@ -915,7 +882,7 @@
                 {
                     "id": "T0039",
                     "title": "Mixers",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Mixers refer to services or protocols that blend different transactions or sources of coins together, obfuscating their origins to enhance transactional privacy and impede transaction graph analysis.",
                     "to": "/T0039",
                     "examples": [
                         {
@@ -929,7 +896,7 @@
                 {
                     "id": "T0040",
                     "title": "Coin-Swap",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Coin-Swap is a mechanism that allows two parties to exchange their cryptocurrencies in a trustless manner, ensuring that neither party can cheat the other, and, in some implementations, preserving the privacy of the transaction history.",
                     "to": "/T0040",
                     "examples": [
                         {
@@ -943,7 +910,7 @@
                 {
                     "id": "T0041",
                     "title": "OTC Broker",
-                    "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                    "description": "Over-The-Counter (OTC) broker act as an intermediary to facilitate high-volume transactions outside of regulated exchanges, potentially allowing for obfuscation of the origin and flow of illicit funds.",
                     "to": "/T0041",
                     "examples": [
                         {
