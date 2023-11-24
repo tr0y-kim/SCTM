@@ -10,7 +10,7 @@
             </v-alert>
         </v-row>
         <h2>Contribution</h2>
-        <v-row no-gutters>
+        <v-row no-gutters style="display: block;">
             <li v-for="(item, index) in reference" :key="index"><a :href="item.link">{{ item.text }}</a></li>
         </v-row>
     </v-container>
