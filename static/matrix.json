@@ -75,7 +75,7 @@
                         {
                             "id": "EX0004",
                             "title": "EX0004",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0004"
                         }
                     ]
@@ -89,7 +89,7 @@
                         {
                             "id": "EX0002",
                             "title": "EXAMPLE 0002",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0002"
                         }
                     ]
@@ -103,7 +103,7 @@
                         {
                             "id": "EX0002",
                             "title": "EXAMPLE 0002",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0002"
                         }
                     ]
@@ -113,7 +113,7 @@
         {
             "id": "TA0003",
             "title": "Execution",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "Tactics involves the act of running malicious code or commands on smart contracts of victim, allowing the attacker to carry out their objectives, such as establishing a foothold within the environment.",
             "to": "/TA0003",
             "created": "17 October 2018",
             "updated": "19 July 2019",
@@ -263,7 +263,7 @@
             "id": "TA0004",
             "title": "Privilege Escalation",
             "subTitle": "(Access Control)",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "Tactics involves exploiting vulnerabilities, misconfigurations, or features in smart contracts to gain higher-level privileges, allowing attackers more control and access to sensitive data and critical system components.",
             "to": "/TA0004",
             "created": "17 October 2018",
             "updated": "19 July 2019",
@@ -487,7 +487,7 @@
         {
             "id": "TA0005",
             "title": "Defense Evasion",
-            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+            "description": "deploy various techniques to avoid detection by security mechanisms, such as signature verification and if-condition detour.",
             "subTitle": "(condition detour)",
             "to": "/TA0005",
             "created": "17 October 2018",
@@ -534,7 +534,7 @@
                         {
                             "id": "EX0021",
                             "title": "EXAMPLE 0021",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0021"
                         }
                     ],
@@ -543,11 +543,6 @@
                             "id": "1",
                             "name": "SWC-116",
                             "link": "https://swcregistry.io/docs/SWC-116/"
-                        },
-                        {
-                            "id": "2",
-                            "name": "Smart Contract Security Field Guide - Insecure Arithmetic",
-                            "link": "https://consensys.github.io/smart-contract-best-practices/attacks/insecure-arithmetic/"
                         }
                     ]
                 },
@@ -755,7 +750,7 @@
                         {
                             "id": "EX0029",
                             "title": "EXAMPLE 0029",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0029"
                         }
                     ],
@@ -786,7 +781,7 @@
                         {
                             "id": "EX0030",
                             "title": "EXAMPLE 0030",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0030"
                         }
                     ],
@@ -874,7 +869,7 @@
                         {
                             "id": "EX0038",
                             "title": "EXAMPLE 0038",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0038"
                         }
                     ]
@@ -888,7 +883,7 @@
                         {
                             "id": "EX0039",
                             "title": "EXAMPLE 0039",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/EX0039"
                         }
                     ]
@@ -902,7 +897,7 @@
                         {
                             "id": "EX0040",
                             "title": "EXAMPLE 0040",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/T0040"
                         }
                     ]
@@ -916,7 +911,7 @@
                         {
                             "id": "EX0041",
                             "title": "EXAMPLE 0041",
-                            "description": "Tactics represent the \"why\" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the reason for performing an action. For example, an adversary may want to achieve credential access.",
+                            "description": "Under Construction...",
                             "to": "/T0041"
                         }
                     ]
