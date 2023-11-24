@@ -226,7 +226,7 @@
                         {
                             "id": "EX0008",
                             "title": "EXAMPLE 0008",
-                            "description": "The Relayer contract provided is vulnerable mainly due to its reliance on the low-level call function for forwarding calls to another contract, specified as Target. The call function forwards all remaining gas by default. If the Target contract's execute function requires more gas than is provided, the call will fail. This is known as the "insufficient gas griefing" attack vector, where a contract is called with just enough gas to execute expensive operations but not enough to complete them, leading to a denial of service.",
+                            "description": "The Relayer contract provided is vulnerable mainly due to its reliance on the low-level call function for forwarding calls to another contract, specified as Target. The call function forwards all remaining gas by default. If the Target contract's execute function requires more gas than is provided, the call will fail. This is known as the 'insufficient gas griefing' attack vector, where a contract is called with just enough gas to execute expensive operations but not enough to complete them, leading to a denial of service.",
                             "to": "/EX0008"
                         }
                     ],
